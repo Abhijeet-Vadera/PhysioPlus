@@ -1,0 +1,56 @@
+<?php
+	error_reporting(0);
+	include("login.php");
+	$count=0;
+	$uid=$_POST['Username'];
+	$pass=$_POST['Password'];
+	$con=mysqli_connect("localhost","root","","physiocare");
+	$qry="select * from login";
+	$res=mysqli_query($con,$qry);
+	$qry1="select * from register";
+	$res1=mysqli_query($con,$qry1);
+	
+	while($row=mysqli_fetch_assoc($res))
+	{
+		if($uid==$row['Username'] && $pass==$row['Password'])
+		{		
+			$count=0;
+			break;
+		}	
+		else
+		{
+			$count=$count+1;
+		}
+	}
+	if($count==0)
+	{
+		$_SESSION['id']=$uid;
+		header("location:index.php");
+	}
+	else
+	{
+		echo "<script>alert('Username or Password is incorrect!')</script>";
+	}	
+	
+	while($row=mysqli_fetch_assoc($res1))
+	{
+		if($uid==$row['Username'] && $pass==$row['Password'])
+		{		
+			$count=0;
+			break;
+		}	
+		else
+		{
+			$count=$count+1;
+		}
+	}
+	if($count==0)
+	{
+		$_SESSION['id']=$uid;
+		header("location:index.php");
+	}
+	else
+	{
+		echo "<script>alert('Username or Password is incorrect!')</script>";
+	}	
+?>
