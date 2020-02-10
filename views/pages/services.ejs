@@ -1,14 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['id']))
-{
-	
-}
-else
-{
-	header("location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,88 +15,14 @@ else
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    
 
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="medilife-load"></div>
-    </div>
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area">
-        <!-- Top Header Area -->
-        <div class="top-header-area">
-            <div class="container h-100">
-                <div class="row h-100">
-                    <div class="col-12 h-100">
-                        <div class="h-100 d-md-flex justify-content-between align-items-center">
-                            <p>Welcome to <span>PhysioPlus</span> Center</p>
-                            <p>Opening Hours : Monday to Saturday - 9am to 8pm Contact : <span>+91 94280 54260</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Header Area -->
-        <div class="main-header-area" id="stickyHeader">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12 h-100">
-                        <div class="main-menu h-100">
-                            <nav class="navbar h-100 navbar-expand-lg">
-                                <!-- Logo Area  -->
-                                <!--<a class="navbar-brand" href="index.php"><img src="img/core-img/logo.png" alt="Logo"></a>-->
-                                <h2 style="text-shadow: 1px 1px 4px black;"><font color="white">Physio<font color="#0067f4">Plus</font></font></h2>
-
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medilifeMenu" aria-controls="medilifeMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-                                <div class="collapse navbar-collapse" id="medilifeMenu">
-                                    <!-- Menu Area -->
-                                    <ul class="navbar-nav ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="about-us.php">About Us</a>
-                                        </li>
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="services.php">Services</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="contact.php">Contact</a>
-                                        </li>
-                                        <!--<li class="nav-item">
-                                            <a class="nav-link" href="blog.php">Login</a>
-                                        </li>-->
-										<li class="nav-item">
-                                            <a class="nav-link" href="logout.php">Logout</a>
-                                        </li>
-                                    </ul>
-                                    <!-- Appointment Button -->
-                                    <a href="index.php#appoinment" class="btn medilife-appoint-btn ml-30">For <span>Appoinment Booking</span></a>
-									<?php
-										if(isset($_SESSION['id']))
-										{
-									?>
-											<a href="#" class="btn medilife-appoint-btn ml-15">Hello, <span><?php echo ($_SESSION['id']);?></span></a>
-									<?php	} 
-										else
-										{ ?>
-											<a href="#" class="btn medilife-appoint-btn ml-15" style="display:none;">Hello, <span>User</span></a>
-									<?php	}	?>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
+    <!-- Header -->
+    <%- include('../partials/header'); %>
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Breadcumb Area Start ***** -->
@@ -315,116 +230,9 @@ else
     <!-- ***** CTA Area End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
-    <footer class="footer-area section-padding-100">
-        <!-- Main Footer Area -->
-        <div class="main-footer-area">
-            <div class="container-fluid">
-                <div class="row">
 
-                    <div class="col-12 col-sm-6 col-xl-3">
-                        <div class="footer-widget-area">
-                            <div class="footer-logo">
-                            	<h2 style="text-shadow: 1px 1px 4px black;"><font color="white">Physio<font color="#0067f4">Plus</font></font></h2>
-                                <!--<img src="img/core-img/logo.png" alt="">-->
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer.</p>
-                                                        
-                            <div class="footer-social-info">
-                            	<h6><font color="#0067f4">Join Us On</font></h6>
-                                <a href="#"><i class="fa fa-google-Plus" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
+    <%- include('../partials/footer'); %>
 
-                    <!--<div class="col-12 col-sm-6 col-xl-3">
-                        <div class="footer-widget-area">
-                            <div class="widget-title">
-                                <h6>Latest News</h6>
-                            </div>
-                            <div class="widget-blog-post">
-                                <!-- Single Blog Post 
-                                <div class="widget-single-blog-post d-flex">
-                                    <div class="widget-post-thumbnail">
-                                        <img src="img/blog-img/ln1.jpg" alt="">
-                                    </div>
-                                    <div class="widget-post-content">
-                                        <a href="#">Better Health Plus</a>
-                                        <p>Dec 02, 2017</p>
-                                    </div>
-                                </div>
-                                <!-- Single Blog Post 
-                                <div class="widget-single-blog-post d-flex">
-                                    <div class="widget-post-thumbnail">
-                                        <img src="img/blog-img/ln2.jpg" alt="">
-                                    </div>
-                                    <div class="widget-post-content">
-                                        <a href="#">A new drug is tested</a>
-                                        <p>Dec 02, 2017</p>
-                                    </div>
-                                </div>
-                                <!-- Single Blog Post 
-                                <div class="widget-single-blog-post d-flex">
-                                    <div class="widget-post-thumbnail">
-                                        <img src="img/blog-img/ln3.jpg" alt="">
-                                    </div>
-                                    <div class="widget-post-content">
-                                        <a href="#">Health department advice</a>
-                                        <p>Dec 02, 2017</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-
-                    <div class="col-12 col-sm-6 col-xl- ">
-                        <div class="footer-widget-area">
-                            <div class="widget-title">
-                                <h6>Contact Form</h6>
-                            </div>
-                            <div class="footer-contact-form">
-                                <form action="#" method="post">
-                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="footer-name" id="footer-name" placeholder="Name">
-                                    <input type="email" class="form-control border-top-0 border-right-0 border-left-0" name="footer-email" id="footer-email" placeholder="Email">
-                                    <textarea name="message" class="form-control border-top-0 border-right-0 border-left-0" id="footerMessage" placeholder="Message"></textarea>
-                                    <button type="submit" class="btn medilife-btn">Contact Us </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-xl-3">
-                        <div class="footer-widget-area">
-                            <div class="widget-title">
-                                <h6>Scan Code For Visit Site</h6>
-                            </div>
-							<img src="img/qr.png">                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bottom Footer Area 
-        <div class="bottom-footer-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="bottom-footer-content">
-                            <!-- Copywrite Text 
-                            <div class="copywrite-text">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-    </footer>
     <!-- ***** Footer Area End ***** -->
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
