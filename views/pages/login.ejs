@@ -1,0 +1,98 @@
+<?php
+error_reporting(0);
+	session_start();
+	
+	if($_SESSION['id']!="")
+	{
+		header("location:index.php");
+	}
+?>
+<html>
+<head>
+<style>
+a
+{
+	text-decoration:none;
+}
+.box1
+{
+	background-color:black;
+	margin:200px 0px 0px 550px;
+	height:250px;
+	width:260px;
+	border-radius:10px;
+	position:absolute;
+}
+.box2
+{
+	background-color:white;
+	margin:207px 0px 0px 544px;
+	height:295px;
+	width:275px;
+	border-radius:10px;
+	position:absolute;
+}
+body
+{
+	background-image:url("img/bg1.jpg");
+	background-position: top;
+	background-repeat:no-repeat;
+}
+input
+{
+	border:0px;
+	height:30px;
+	width:200px;
+}
+::placeholder 
+{
+  color: black;
+  opacity: 1;
+  font-weight:bold;
+}
+.vl
+{
+	border-left:6px solid black;
+	height:60px;
+}
+.btn
+{
+	height:60px;
+	width:60px;
+	border-radius:50%;
+	border:none;
+	background-color:black;
+	margin:0px 0px 0px 140px;
+}
+span
+{
+	font-size:40px;
+	color:white;
+}
+hr
+{
+	width:80%;
+}
+#submit
+{
+	font-weight:bold;
+	font-size:15px;
+	border:1px solid black;
+}
+</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2">
+		<div class="vl"><h1 style="padding:0px 0px 0px 20px;color:black;width:110%;margin-top:15px;">Login<a href="register.php"><button class="btn"><span>&#65291;</span></button></a></h1></div>
+		<div>
+			<form action="log1.php" method="post">
+				<center><input type="text" class="text" id="name" name="Username" placeholder="Username" style="margin-top:15px;"><hr></center>
+				<center><input type="password" name="Password" placeholder="Password"><hr></center><br />
+				<center><input type="submit" id="submit" name="submit" value="GO" /></center><br />
+				<center><a href="forgotpass.php" style="color:black;">Forgot Your Password?</a></center>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
